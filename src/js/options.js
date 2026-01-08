@@ -20,7 +20,9 @@ function main() {
       const app = formData.get("app");
       const domain = formData.get("domain");
       const prefixes = formData.get("prefixes");
-      const data = { app, domain, prefixes };
+      const sentryDomain = formData.get("sentryDomain");
+      const sentryIssueCreateUrl = formData.get("sentryIssueCreateUrl");
+      const data = { app, domain, prefixes, sentryDomain, sentryIssueCreateUrl };
       if (!data.app) {
         return toggleError("请输入飞书命名空间");
       }

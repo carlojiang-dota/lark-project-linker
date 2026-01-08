@@ -49,6 +49,20 @@ function jsOptions() {
     });
 }
 
+function jsSentry() {
+  return rollup
+    .rollup({
+      input: "./src/js/sentry.js",
+      plugins: [dotenv()],
+    })
+    .then((bundle) => {
+      return bundle.write({
+        file: "./dist/sentry.js",
+        format: "iife",
+      });
+    });
+}
+
 function html() {
   return src("./src/html/*.html").pipe(dest("dist"));
 }
@@ -74,16 +88,18 @@ if (isProd) {
   exports.build = series(
     jsOptions,
     jsIndex,
+    jsSentry,
     jsBackground,
     html,
     static,
     manifest
   );
 } else {
-  watch("./src/**/*", series(jsOptions, jsIndex, jsBackground, html));
+  watch("./src/**/*", series(jsOptions, jsIndex, jsSentry, jsBackground, html));
   exports.dev = series(
     jsOptions,
     jsIndex,
+    jsSentry,
     jsBackground,
     html,
     static,

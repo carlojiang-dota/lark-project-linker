@@ -141,7 +141,7 @@ async function main() {
       }
     }
 
-    // 方法3：获取前面的文本节点（处理 #TAP-xxx 这种情况）
+    // 方法3：获取前面的文本节点（处理 #XX-xxx 这种情况）
     let previousText = '';
     let prevNode = link.previousSibling;
     // 向前查找最多 3 个兄弟节点
@@ -599,8 +599,8 @@ async function main() {
     let isFind = false;
     const content = dom.innerHTML.replace(reg, ($0, $1) => {
       // $0 是完整匹配（包含 #），$1 是括号中的前缀部分
-      const fullMatch = $0; // 如 #TAP-6478178330
-      const tid = fullMatch.substring(1); // 移除 # 号，得到 TAP-6478178330
+      const fullMatch = $0; // 如 #XX-6478178330
+      const tid = fullMatch.substring(1); // 移除 # 号，得到 XX-6478178330
       const projectId = tid.split("-")[1];
       const prefix = tid.split("-")[0].toLowerCase();
       isFind = true;
@@ -619,7 +619,7 @@ async function main() {
         tid: tid,
         app: LarkConfig.app,
       });
-      // 只替换 #TAP-xxx 部分为飞书链接
+      // 只替换 #XX-xxx 部分为飞书链接
       return `<a class='lark-project-link ${className ? className : ""
         }' href='${url}' target='_blank' data-tid="${tid}" data-lark-type="${type}" >${fullMatch}</a>`;
     });

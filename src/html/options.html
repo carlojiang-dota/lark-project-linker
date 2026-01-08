@@ -82,61 +82,107 @@
       >
         <h1 class="text-2xl font-bold mb-8">配置</h1>
         <form id="form" novalidate>
-          <div class="relative z-0 w-full mb-5">
-            <div>
-              <input
-                type="text"
-                name="app"
-                placeholder=" "
-                required
-                class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              />
-              <label
-                for="app"
-                class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
-                >飞书命名空间</label
-              >
+          <!-- 跳转配置 -->
+          <div class="mb-8">
+            <h2 class="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">跳转配置</h2>
+            <div class="relative z-0 w-full mb-5">
+              <div>
+                <input
+                  type="text"
+                  name="app"
+                  placeholder=" "
+                  required
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+                <label
+                  for="app"
+                  class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
+                  >飞书命名空间</label
+                >
+              </div>
+              <p class="text-xs text-gray-500">
+                支持多个命名空间，用逗号分隔，如：pojq34,app1,app2（插件会自动尝试找到有效的）
+              </p>
             </div>
-            <p class="text-xs text-gray-500">
-              支持多个命名空间，用逗号分隔，如：pojq34,app1,app2（插件会自动尝试找到有效的）
-            </p>
+            <div class="relative z-0 w-full mb-5">
+              <div>
+                <input
+                  type="text"
+                  name="domain"
+                  placeholder=" "
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+                <label
+                  for="domain"
+                  class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
+                  >GitLab 域名地址</label
+                >
+              </div>
+              <p class="text-xs text-gray-500">
+                输入 GitLab 域名地址用于匹配激活插件，如 gitlab.com
+                (多个域名触发请用 , 作为分割)
+              </p>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div>
+                <input
+                  type="text"
+                  name="prefixes"
+                  placeholder=" "
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+                <label
+                  for="prefixes"
+                  class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
+                  >项目 ID 前缀</label
+                >
+              </div>
+              <p class="text-xs text-gray-500">
+                输入识别的项目 ID 前缀，多个用逗号分隔，如 XX,M,F (默认为 m,f)
+              </p>
+            </div>
           </div>
-          <div class="relative z-0 w-full mb-5">
-            <div>
-              <input
-                type="text"
-                name="domain"
-                placeholder=" "
-                class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              />
-              <label
-                for="domain"
-                class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
-                >GitLab 域名地址</label
-              >
+
+          <!-- Sentry 配置 -->
+          <div class="mb-8">
+            <h2 class="text-lg font-semibold mb-4 text-gray-700 border-b pb-2">Sentry 配置</h2>
+            <div class="relative z-0 w-full mb-5">
+              <div>
+                <input
+                  type="text"
+                  name="sentryDomain"
+                  placeholder=" "
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+                <label
+                  for="sentryDomain"
+                  class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
+                  >Sentry 域名地址</label
+                >
+              </div>
+              <p class="text-xs text-gray-500">
+                输入 Sentry 域名地址用于匹配激活插件，如 sentry.com
+                (多个域名触发请用 , 作为分割)
+              </p>
             </div>
-            <p class="text-xs text-gray-500">
-              输入 GitLab 域名地址用于匹配激活插件，如 gitlab.com
-              (多个域名触发请用 , 作为分割)
-            </p>
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <div>
-              <input
-                type="text"
-                name="prefixes"
-                placeholder=" "
-                class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              />
-              <label
-                for="prefixes"
-                class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
-                >项目 ID 前缀</label
-              >
+            <div class="relative z-0 w-full mb-5">
+              <div>
+                <input
+                  type="text"
+                  name="sentryIssueCreateUrl"
+                  placeholder=" "
+                  class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+                <label
+                  for="sentryIssueCreateUrl"
+                  class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"
+                  >Sentry Issue 创建地址</label
+                >
+              </div>
+              <p class="text-xs text-gray-500">
+                输入后端 API 地址，如 http://localhost:8080/api/feishu-sentry
+              </p>
             </div>
-            <p class="text-xs text-gray-500">
-              输入识别的项目 ID 前缀，多个用逗号分隔，如 TAP,M,F (默认为 m,f)
-            </p>
           </div>
           <div
             class="relative z-0 w-full mb-5 text-sm text-red-600 hidden"
