@@ -1,6 +1,6 @@
 # Lark Project Linker
 
-一个浏览器插件，连接 GitLab/GitHub/Sentry 与飞书项目。自动将项目 ID（如 `#TAP-xxx`）转换为可点击的飞书链接，支持智能类型识别（Story/Issue）和一键创建飞书工单。让你的 DevOps 工作流更高效！
+一个浏览器插件，连接 GitLab/GitHub/Sentry 与飞书项目。自动将项目 ID（如 `#XX-xxx`）转换为可点击的飞书链接，支持智能类型识别（Story/Issue）和一键创建飞书工单。让你的 DevOps 工作流更高效！
 
 [飞书参考资料](https://bytedance.larkoffice.com/wiki/XusFwYp2ZiqltkkSTaJc7eMdnYb)
 
@@ -93,8 +93,8 @@ npm run build
 - **飞书命名空间**：你的飞书项目空间名称，支持多个，用逗号分隔（如：`pojq34,app1,app2`）
   - 插件会自动尝试每个命名空间，直到找到有效的那个
 - **域名地址**：用于匹配激活插件（如：`gitlab.com,github.com`），支持多个域名，用逗号分隔
-- **项目 ID 前缀**：项目中使用的项目 ID 前缀，多个用逗号分隔（如：`XX,M,F,TAP`）
-  - 支持大小写，如 `TAP` 可匹配 `#TAP-6616715346`
+- **项目 ID 前缀**：项目中使用的项目 ID 前缀，多个用逗号分隔（如：`XX,M,F,XX`）
+  - 支持大小写，如 `XX` 可匹配 `#XX-6616715346`
 
 ### Sentry 配置（可选）
 - **Sentry 域名地址**：你的 Sentry 域名（如：`sentry.com`），支持多个，用逗号分隔
@@ -130,21 +130,21 @@ feat: 新增分享功能 #XX-123456789
 
 #### GitHub Commits 页面示例
 ```
-feat: 修复 detekt 报错 # TAP-6616715346
+feat: 修复 detekt 报错 # XX-6616715346
                      ↓
           点击项目 ID 跳转到飞书
           悬浮显示 Lark Tooltip
 ```
 
-在 GitHub commits 页面（如 `https://github.com/taptap/TapSDK-Monorepo/commits/branch-name/`）：
-- 📍 commit 标题中的 `# TAP-6616715346` 会被识别
+在 GitHub commits 页面（如 `https://github.com/XXXX/XXSDK-Monorepo/commits/branch-name/`）：
+- 📍 commit 标题中的 `# XX-6616715346` 会被识别
 - 🎯 点击项目 ID 部分直接跳转到飞书
 - 💡 悬浮显示飞书项目信息
 - 🔄 自动根据 commit 类型判断 Issue/Story
 
 **配置示例：**
 - 域名地址：`github.com`
-- 项目 ID 前缀：`TAP,XX,M,F`（根据实际项目配置）
+- 项目 ID 前缀：`XX,XX,M,F`（根据实际项目配置）
 
 #### 页面自动刷新
 - ✅ 切换到 Commits 标签 → 自动扫描新链接
@@ -166,12 +166,12 @@ feat: 修复 detekt 报错 # TAP-6616715346
    - **经办人**：可搜索 Sentry 成员
    - **动态字段**：优先级、严重程度等（根据后端配置）
 5. 填写完毕后点击"创建"
-6. 创建成功后页面会自动显示工单号（如 `TAP-6663198368`），点击可跳转
+6. 创建成功后页面会自动显示工单号（如 `XX-6663198368`），点击可跳转
 
 #### 查看已创建的工单
 
 如果 Sentry Issue 已关联飞书工单：
-- 按钮会显示工单号（如 `TAP-6663148821`）
+- 按钮会显示工单号（如 `XX-6663148821`）
 - 点击工单号直接跳转到飞书工单详情
 - "+"按钮会被隐藏，避免重复创建
 
@@ -293,7 +293,7 @@ chrome.storage.local.remove('LARK_PROJECT_TYPE_CACHE');
 **新增功能：**
 - ✨ **GitHub 完整支持**：新增对 GitHub 平台的完整支持
   - 支持 GitHub Commits 页面（如 `github.com/user/repo/commits/branch/`）
-  - 智能识别 commit 标题中的项目 ID（如 `# TAP-6616715346`）
+  - 智能识别 commit 标题中的项目 ID（如 `# XX-6616715346`）
   - 点击项目 ID 部分直接跳转到飞书（无需嵌套链接）
   - 支持 GitHub Pull Request 标题和评论
   - 支持 GitHub Turbo/PJAX 导航自动刷新

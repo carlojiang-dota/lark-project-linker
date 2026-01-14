@@ -127,8 +127,8 @@ export function createGitHubHandler(context) {
       
       for (const match of matches) {
         hasMatch = true;
-        const fullMatch = match[0]; // 如 #TAP-6616715346
-        const tid = fullMatch.substring(1); // 移除 #，得到 TAP-6616715346
+        const fullMatch = match[0]; // 如 #XX-6616715346
+        const tid = fullMatch.substring(1); // 移除 #，得到 XX-6616715346
         const projectId = tid.split("-")[1];
         const prefix = tid.split("-")[0].toLowerCase();
         
