@@ -1,19 +1,6 @@
-import { getLarkConfig, setLarkConfig, isDev } from "./store";
+import { getLarkConfig, setLarkConfig } from "./store";
 
 function main() {
-  if (isDev) {
-    document.getElementById("dev-inject").style.display = "block";
-    // Dev inject 按钮事件
-    const devInjectBtn = document.getElementById("dev-inject-btn");
-    if (devInjectBtn) {
-      devInjectBtn.addEventListener("click", function() {
-        const s = document.createElement('script');
-        s.src = 'http://localhost:3000/index.js';
-        document.body.appendChild(s);
-      });
-    }
-  }
-
   const errMsgDom = document.getElementById("error");
   const successMsgDom = document.getElementById("success");
   const loadingDom = document.getElementById("loading");
